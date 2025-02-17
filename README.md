@@ -1,44 +1,59 @@
-# Telefon Takip Projesi
+İşte İngilizceden Türkçeye çevrilmiş hali:  
 
-### Sorumluluk Reddi (Disclaimer)
-Bu proje, yalnızca eğitim ve kişisel kullanım amaçlıdır. Proje, herhangi bir yasal sorumluluk kabul etmez ve kötüye kullanımdan kaynaklanan sonuçlardan sorumlu değildir. Kullanıcılar, bu projeyi kullanarak herhangi bir yasayı ihlal etmemekten ve başkalarının gizlilik haklarına saygı göstermekten tamamen kendileri sorumludur.
+---
 
-Yasal Uyarı: Bu proje, izinsiz kişisel veri toplama veya herhangi bir yasa dışı faaliyet için kullanılmamalıdır.
+# **Telefon Takip Projesi**  
 
-Gizlilik: Bu proje, kullanıcıların gizliliğine saygı gösterir ve herhangi bir kişisel veriyi saklamaz veya paylaşmaz.
+### **Sorumluluk Reddi (Disclaimer)**  
+Bu proje yalnızca eğitim ve kişisel kullanım amaçlıdır. Proje, herhangi bir yasal sorumluluk kabul etmez ve kötüye kullanımdan kaynaklanan sonuçlardan sorumlu değildir. Kullanıcılar, bu projeyi kullanırken herhangi bir yasayı ihlal etmemekten ve başkalarının gizlilik haklarına saygı göstermekten tamamen kendileri sorumludur.  
 
-Sorumluluk: Bu projenin kullanımından kaynaklanan herhangi bir yasal veya etik sorumluluk, kullanıcıya aittir.
+**Yasal Uyarı:** Bu proje, izinsiz kişisel veri toplama veya herhangi bir yasa dışı faaliyet için kullanılmamalıdır.  
 
-Katkıda Bulunma
-Katkıda bulunmak isterseniz, lütfen bir pull request gönderin.
+**Gizlilik:** Bu proje, kullanıcı gizliliğine saygı duyar ve herhangi bir kişisel veriyi saklamaz veya paylaşmaz.  
 
-Bu proje, telefon numarasından konum bilgisi almayı ve bu bilgiyi harita üzerinde göstermeyi sağlar.
+**Sorumluluk:** Bu projenin kullanımından kaynaklanan herhangi bir yasal veya etik sorumluluk kullanıcıya aittir.  
 
-## Özellikler
-- Telefon numarasından konum bilgisi alma.
-- OpenCage ve Google Maps API entegrasyonu.
-- Folium ile interaktif harita oluşturma.
-- Twilio ile SMS gönderme.
+### **Katkıda Bulunma**  
+Katkıda bulunmak isterseniz, lütfen bir pull request gönderin.  
 
-## Kurulum
-1. Gereksinimleri yükleyin:
-python -m venv telefon-env
-source telefon-env/bin/activate
-3. Bağımlılıkları Yükleyin
-pip install -r requirements.txt
-python src/phone_tracker.py
+Bu proje, telefon numarasından konum bilgisi almayı ve bu bilgiyi harita üzerinde göstermeyi sağlar.  
 
+## **Özellikler**  
+- Telefon numarasından konum bilgisi alma.  
+- OpenCage ve Google Maps API entegrasyonu.  
+- Folium ile interaktif harita oluşturma.  
+- Twilio ile SMS gönderme.  
 
+## **Kurulum**  
+
+1. Gerekli bağımlılıkları yükleyin:  
+   ```sh
+   python -m venv telefon-env
+   source telefon-env/bin/activate
+   ```  
+2. Bağımlılıkları yükleyin:  
+   ```sh
+   pip install -r requirements.txt
+   python src/phone_tracker.py
+   ```  
+
+```
 ██████╗ ███████╗ ██████╗  █████╗ ███████╗██╗   ██╗███████╗
 ██╔══██╗██╔════╝██╔════╝ ██╔══██╗██╔════╝██║   ██║██╔════╝
 ██████╔╝█████╗  ██║  ███╗███████║███████╗██║   ██║███████╗
 ██╔═══╝ ██╔══╝  ██║   ██║██╔══██║╚════██║██║   ██║╚════██║
 ██║     ███████╗╚██████╔╝██║  ██║███████║╚██████╔╝███████║
 ╚═╝     ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚══════╝
-# Telefon-Takip
-# Telefon-Takip
-# Telefon-takip
-# Telefon-takip
+```
+
+# **Telefon-Takip**  
+# **Telefon-Takip**  
+# **Telefon-Takip**  
+# **Telefon-Takip**  
+
+---
+
+Aynı metin olduğu için çevirisi birebir aynı oldu. Ekstra değişiklik veya düzenleme istersen bana bildirebilirsin. 🚀
 
 ***************************************************************
 
