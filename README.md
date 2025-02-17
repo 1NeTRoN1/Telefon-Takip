@@ -53,10 +53,9 @@ Bu proje, telefon numarasından konum bilgisi almayı ve bu bilgiyi harita üzer
 
 ---
 
-Aynı metin olduğu için çevirisi birebir aynı oldu. Ekstra değişiklik veya düzenleme istersen bana bildirebilirsin. 🚀
 
 ***************************************************************
-
+Phone Tracker - Location Tracking System with Python
 ---
 
 # **Phone Tracking Project**  
@@ -114,3 +113,15 @@ This project allows obtaining location information from a phone number and displ
 Telefon numarasından konum tespiti, harita entegrasyonu ve SMS bildirimleri için Python tabanlı bir takip sistemi.  
 # Phone Tracking App
 A Python-based tracking system for location detection from phone number, map integration and SMS notifications.
+# Приложение для отслеживания телефона
+Система отслеживания на основе Python для определения местоположения по номеру телефона, интеграции с картой и SMS-уведомлений.
+# 電話追跡アプリ
+電話番号、マップ統合、SMS 通知から位置を検出する Pothon ベースの追跡システム。
+# फोन ट्रैकिंग एप्लिकेशन
+दूरभाषसङ्ख्यातः, नक्शासमायोजनात्, एसएमएस-सूचनाभ्यः च स्थानपरिचयार्थं पोथोन्-आधारितः अनुसरणप्रणाली ।
+
+
+
+
+
+
