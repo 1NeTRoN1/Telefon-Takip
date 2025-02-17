@@ -110,4 +110,7 @@ This project allows obtaining location information from a phone number and displ
 
 ---
 
-
+# Telefon Takip Uygulaması  
+Telefon numarasından konum tespiti, harita entegrasyonu ve SMS bildirimleri için Python tabanlı bir takip sistemi.  
+# Phone Tracking App
+A Python-based tracking system for location detection from phone number, map integration and SMS notifications.
