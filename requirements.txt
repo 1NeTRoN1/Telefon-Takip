@@ -1,0 +1,8 @@
+# requirements.txt
+phonenumbers==8.13.55
+opencage==3.0.4
+folium==0.16.0
+googlemaps==4.10.0
+python-dotenv==1.0.0
+twilio==8.0.0
+colorama==0.4.6
