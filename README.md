@@ -1,4 +1,4 @@
-İşte İngilizceden Türkçeye çevrilmiş hali:  
+Phone Tracker - Python ile Konum Takip Sistemi
 
 ---
 
