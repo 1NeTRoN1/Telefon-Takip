@@ -8,6 +8,7 @@ import folium
 from dotenv import load_dotenv
 from pathlib import Path
 from colorama import Fore, Style, init
+from geopy.geocoders import Nominatim
 
 # Terminali temizle (Linux/Windows/macOS uyumlu)
 def clear_terminal():
@@ -59,29 +60,20 @@ def parse_phone_number(number: str) -> phonenumbers.PhoneNumber:
 def get_location_details(parsed_num: phonenumbers.PhoneNumber) -> tuple[str, str]:
     """Konum ve operatör bilgilerini al"""
     try:
-        location = geocoder.description_for_number(parsed_num, "tr")
-        operator = carrier.name_for_number(parsed_num, "tr")
+        location = geocoder.description_for_number(parsed_num, "en")  # Ülke bilgisini al
+        operator = carrier.name_for_number(parsed_num, "en")
         return location, operator
     except Exception as e:
         raise RuntimeError(f"Konum bilgisi alınamadı: {str(e)}")
 
-def get_coordinates(location: str) -> tuple[float, float] | None:
-    """OpenCage API ile koordinatları al"""
-    try:
-        oc_geocoder = OpenCageGeocode(get_api_key("OPENCAGE"))
-        results = oc_geocoder.geocode(location, language='tr')
-        return (results[0]['geometry']['lat'], results[0]['geometry']['lng']) if results else None
-    except Exception as e:
-        raise RuntimeError(f"OpenCage hatası: {str(e)}")
-
-def get_detailed_address(lat: float, lng: float) -> str:
-    """Google Maps API ile detaylı adres al"""
-    try:
-        gmaps = Client(key=get_api_key("GOOGLE"))
-        reverse_geocode = gmaps.reverse_geocode((lat, lng), location_type="ROOFTOP", language='tr')
-        return reverse_geocode[0]['formatted_address'] if reverse_geocode else "Adres bulunamadı"
-    except Exception as e:
-        raise RuntimeError(f"Google Maps hatası: {str(e)}")
+def get_country_coordinates(country_name: str) -> tuple[float, float]:
+    """Ülke adından ülkenin merkez koordinatlarını al"""
+    geolocator = Nominatim(user_agent="phone_tracker")
+    location = geolocator.geocode(country_name, exactly_one=True)
+    if location:
+        return (location.latitude, location.longitude)
+    else:
+        raise ValueError(f"{country_name} için koordinat bulunamadı.")
 
 def generate_map(lat: float, lng: float, operator: str, address: str) -> str:
     """Folium ile interaktif harita oluştur"""
@@ -89,9 +81,9 @@ def generate_map(lat: float, lng: float, operator: str, address: str) -> str:
         output_dir = Path(__file__).resolve().parent.parent / "output"
         output_dir.mkdir(exist_ok=True)
         
-        harita = folium.Map(location=[lat, lng], zoom_start=12)
+        harita = folium.Map(location=[lat, lng], zoom_start=5)
         popup_text = f"<b>Operatör:</b> {operator}<br><b>Adres:</b> {address}"
-        folium.Marker([lat, lng], popup=popup_text, tooltip="Detaylar").add_to(harita)
+        folium.Marker([lat, lng], popup=popup_text, tooltip="Ülke Merkezi").add_to(harita)
         
         file_path = output_dir / "konum.html"
         harita.save(file_path)
@@ -129,19 +121,18 @@ def single_location_query():
         parsed_num = parse_phone_number(numara)
         location, operator = get_location_details(parsed_num)
         
-        coordinates = get_coordinates(location)
-        if not coordinates:
-            print(f"{Fore.RED}[-]{Style.RESET_ALL} Koordinatlar alınamadı!")
-            return
+        # Ülke merkez koordinatlarını al
+        lat, lng = get_country_coordinates(location)
         
-        lat, lng = coordinates
-        detailed_address = get_detailed_address(lat, lng)
+        # Detaylı adres bilgisini al
+        detailed_address = f"{location} (Ülke Merkezi)"
         
         print(f"\n{Fore.GREEN}{'═'*40}{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}📱 Operatör:{Style.RESET_ALL} {Fore.CYAN}{operator}{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}📍 Bölge:{Style.RESET_ALL} {Fore.CYAN}{location}{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}🏠 Detaylı Adres:{Style.RESET_ALL} {Fore.GREEN}{detailed_address}{Style.RESET_ALL}")
         
+        # Harita oluştur ve kaydet
         map_path = generate_map(lat, lng, operator, detailed_address)
         print(f"\n{Fore.MAGENTA}🗺️ Harita kaydedildi:{Style.RESET_ALL} {Fore.BLUE}{map_path}{Style.RESET_ALL}")
         print(f"{Fore.GREEN}{'═'*40}{Style.RESET_ALL}")
